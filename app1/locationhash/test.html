@@ -1,0 +1,60 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>无标题文档</title>
+    <script type="text/javascript" src="lr.locationhash-1.0.js"></script>
+    <script type="text/javascript">
+        var hashwork = new Hashwork();
+        hashwork._load(window, window.location.hash);
+    </script>
+</head>
+<body>
+    <div>
+        <label>a=</label>
+        <input type="text" id="a" value="" />
+        <br /><br />
+
+        <label>b=</label>
+        <input type="text" id="b" value="" />
+        <br /><br />
+
+        <label>c=</label>
+        <input type="text" id="c" value="" />
+        <br /><br />
+
+        <label>d=</label>
+        <input type="text" id="d" value="" />
+        <br /><br />
+
+        <input type="button" value="测试" onclick="fun1();"/>
+        <input type="button" value="刷新" onclick="window.location.reload();" />
+
+        <script type="text/javascript">
+            (function () {
+                var a = hashwork.get('a');
+                var b = hashwork.get('b');
+                var c = hashwork.get('c');
+                var d = hashwork.get('d');
+
+                document.getElementById('a').value = a;
+                document.getElementById('b').value = b;
+                document.getElementById('c').value = c;
+                document.getElementById('d').value = d;
+            })();
+
+            function fun1() {
+                var a = document.getElementById('a').value;
+                var b = document.getElementById('b').value;
+                var c = document.getElementById('c').value;
+                var d = document.getElementById('d').value;
+
+                hashwork.set('a', a);
+                hashwork.set('b', b);
+                hashwork.set('c', c);
+                hashwork.set('d', d);
+            }
+        </script>
+    </div>
+</body>
+</html>
